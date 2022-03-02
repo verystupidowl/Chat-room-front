@@ -92,6 +92,7 @@ const ChatRoom = () => {
         if (stompClient) {
             let chatMessage = {
                 senderName: userData.username,
+                receiverName: "general-chat",
                 message: userData.message,
                 status: "MESSAGE"
             };
@@ -145,7 +146,7 @@ const ChatRoom = () => {
                         <ul>
                             <li onClick={() => {
                                 setTab("CHATROOM")
-                            }} className={`member ${tab === "CHATROOM" && "active"}`}>Chatroom
+                            }} className={`member ${tab === "CHATROOM" && "active"}`}>General chat
                             </li>
                             {[...privateChats.keys()].map((name, index) => (
                                 <li onClick={() => {
