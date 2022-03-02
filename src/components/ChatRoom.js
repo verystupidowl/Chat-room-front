@@ -119,6 +119,24 @@ const ChatRoom = () => {
         }
     }
 
+    const onKeyListenerPublic = (event) => {
+        if(event.code === 'Enter') {
+            sendPublicMessage();
+        }
+    }
+
+    const onKeyListenerPrivate = (event) => {
+        if (event.code === 'Enter') {
+            sendPrivateMessage();
+        }
+    }
+
+    const onKeyListenerRegister = (event) => {
+        if(event.code === 'Enter') {
+            registerUser();
+        }
+    }
+
     return (
         <div className="container">
             {userData.connected ?
@@ -152,7 +170,7 @@ const ChatRoom = () => {
 
                         <div className="send-message">
                             <input type="text" className="input-message" placeholder="enter the message"
-                                   value={userData.message} onChange={handleMessage}/>
+                                   value={userData.message} onChange={handleMessage} onKeyPress={onKeyListenerPublic}/>
                             <button type="button" className="send-button" onClick={sendPublicMessage}>send</button>
                         </div>
                     </div>}
@@ -172,7 +190,7 @@ const ChatRoom = () => {
 
                         <div className="send-message">
                             <input type="text" className="input-message" placeholder="enter the message"
-                                   value={userData.message} onChange={handleMessage}/>
+                                   value={userData.message} onChange={handleMessage} onKeyPress={onKeyListenerPrivate}/>
                             <button type="button" className="send-button" onClick={sendPrivateMessage}>send</button>
                         </div>
                     </div>}
@@ -185,6 +203,7 @@ const ChatRoom = () => {
                         placeholder="Enter the user name"
                         value={userData.username}
                         onChange={handleUsername}
+                        onKeyPress={onKeyListenerRegister}
                     />
                     <button type='button' onClick={registerUser}>
                         connect
