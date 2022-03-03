@@ -64,9 +64,6 @@ const ChatRoom = () => {
                 publicChats.push(payloadData);
                 setPublicChats([...publicChats]);
                 break;
-            case "LEAVE":
-                publicChats.reduce(payloadData);
-                break;
             default:
                 break;
         }
