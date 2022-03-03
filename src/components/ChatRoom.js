@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {over} from 'stompjs';
+import { over } from 'stompjs';
 import SockJS from 'sockjs-client';
 
 let stompClient = null;
@@ -63,6 +63,9 @@ const ChatRoom = () => {
             case "MESSAGE":
                 publicChats.push(payloadData);
                 setPublicChats([...publicChats]);
+                break;
+            case "LEAVE":
+                publicChats.reduce(payloadData);
                 break;
             default:
                 break;
