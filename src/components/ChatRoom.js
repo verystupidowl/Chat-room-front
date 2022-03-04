@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { over } from 'stompjs';
+import {over} from 'stompjs';
 import SockJS from 'sockjs-client';
 
 let stompClient = null;
@@ -121,7 +121,7 @@ const ChatRoom = () => {
     }
 
     const onKeyListenerPublic = (event) => {
-        if(event.code === 'Enter') {
+        if (event.code === 'Enter') {
             sendPublicMessage();
         }
     }
@@ -133,7 +133,7 @@ const ChatRoom = () => {
     }
 
     const onKeyListenerRegister = (event) => {
-        if(event.code === 'Enter') {
+        if (event.code === 'Enter') {
             registerUser();
         }
     }
